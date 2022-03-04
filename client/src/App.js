@@ -1,9 +1,31 @@
 import catLogo from "./cat-logo.svg";
+import ReactDOM from "react-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import React from "react";
 
 const App = () => {
-  return <div>Hello world</div>;
+  return (
+    <BrowserRouter>
+      <Switch>
+        <Route exact path="/">
+          <Home />
+        </Route>
+        <Route exact path="/notifications">
+          <Notifications />
+        </Route>
+        <Route exact path="/bookmarks">
+          <Bookmarks />
+        </Route>
+        <Route exact path="/tweet/:tweetId">
+          <TweetDetails />
+        </Route>
+        <Route exact path="/:profileId">
+          <Profile />
+        </Route>
+      </Switch>
+    </BrowserRouter>
+  );
 };
 
 export default App;
