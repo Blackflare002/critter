@@ -9,9 +9,9 @@ export default createGlobalStyle`
 *,
   *:before,
   *:after {
-    box-sizing: border-box;
+    /* box-sizing: border-box; */
     /* -webkit-font-smoothing: antialiased; */
-    font-family: 'Roboto', Arial, Helvetica, sans-serif
+    font-family: Arial, Helvetica, sans-serif
   }
 
 html, body, div, span, applet, object, iframe,

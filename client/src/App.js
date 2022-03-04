@@ -9,29 +9,36 @@ import TweetDetails from "./components/TweetDetails";
 import Profile from "./components/Profile";
 // import Icons from "react-icons";
 import { IconName } from "react-icons/fi";
+import Sidebar from "./components/Sidebar";
 
 const App = () => {
   return (
     <>
-      <BrowserRouter>
-        <Switch>
-          <Route exact path="/">
-            <HomeFeed />
-          </Route>
-          <Route exact path="/notifications">
-            <Notifications />
-          </Route>
-          <Route exact path="/bookmarks">
-            <Bookmarks />
-          </Route>
-          <Route exact path="/tweet/:tweetId">
-            <TweetDetails />
-          </Route>
-          <Route exact path="/:profileId">
-            <Profile />
-          </Route>
-        </Switch>
-      </BrowserRouter>
+      <div>
+        <Sidebar />
+        <h1>Hello</h1>
+      </div>
+      <>
+        <BrowserRouter>
+          <Switch>
+            <Route exact path="/" element={<HomeFeed />}>
+              <HomeFeed />
+            </Route>
+            <Route exact path="/notifications" element={<Notifications />}>
+              <Notifications />
+            </Route>
+            <Route exact path="/bookmarks">
+              <Bookmarks />
+            </Route>
+            <Route exact path="/tweet/:tweetId">
+              <TweetDetails />
+            </Route>
+            <Route exact path="/:profileId">
+              <Profile />
+            </Route>
+          </Switch>
+        </BrowserRouter>
+      </>
     </>
   );
 };
