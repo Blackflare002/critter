@@ -1,30 +1,38 @@
+import React from "react";
 import catLogo from "./cat-logo.svg";
 import ReactDOM from "react-dom";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-
-import React from "react";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
+import HomeFeed from "./components/HomeFeed";
+import Notifications from "./components/Notifications";
+import Bookmarks from "./components/Bookmarks";
+import TweetDetails from "./components/TweetDetails";
+import Profile from "./components/Profile";
+// import Icons from "react-icons";
+import { IconName } from "react-icons/fi";
 
 const App = () => {
   return (
-    <BrowserRouter>
-      <Switch>
-        <Route exact path="/">
-          <Home />
-        </Route>
-        <Route exact path="/notifications">
-          <Notifications />
-        </Route>
-        <Route exact path="/bookmarks">
-          <Bookmarks />
-        </Route>
-        <Route exact path="/tweet/:tweetId">
-          <TweetDetails />
-        </Route>
-        <Route exact path="/:profileId">
-          <Profile />
-        </Route>
-      </Switch>
-    </BrowserRouter>
+    <>
+      <BrowserRouter>
+        <Switch>
+          <Route exact path="/">
+            <HomeFeed />
+          </Route>
+          <Route exact path="/notifications">
+            <Notifications />
+          </Route>
+          <Route exact path="/bookmarks">
+            <Bookmarks />
+          </Route>
+          <Route exact path="/tweet/:tweetId">
+            <TweetDetails />
+          </Route>
+          <Route exact path="/:profileId">
+            <Profile />
+          </Route>
+        </Switch>
+      </BrowserRouter>
+    </>
   );
 };
 
