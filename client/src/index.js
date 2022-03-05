@@ -5,14 +5,17 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { COLORS } from "./Constants";
 import GlobalStyles from "./components/GlobalStyles";
+import CurrentUserProvider from "./components/CurrentUserContext";
 
 ReactDOM.render(
   <React.StrictMode>
-  <GlobalStyles>
-    <COLORS>
-      <App />
-    </COLORS>
-  </GlobalStyles>
+    <GlobalStyles>
+      <COLORS>
+        <CurrentUserProvider>
+          <App />
+        </CurrentUserProvider>
+      </COLORS>
+    </GlobalStyles>
   </React.StrictMode>,
   document.getElementById("root")
 );
