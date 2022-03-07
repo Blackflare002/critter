@@ -6,14 +6,11 @@ import { createGlobalStyle } from "styled-components";
 */
 
 export default createGlobalStyle`
-*,
-  *:before,
-  *:after {
+*, *:before, *:after {
     /* box-sizing: border-box; */
     /* -webkit-font-smoothing: antialiased; */
     font-family: Arial, Helvetica, sans-serif
   }
-
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -56,4 +53,5 @@ q:before, q:after {
 table {
 	border-collapse: collapse;
 	border-spacing: 0;
-}`;
+}
+`;

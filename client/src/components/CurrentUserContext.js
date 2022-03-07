@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 
 const CurrentUserContext = createContext(null);
 
@@ -10,13 +10,15 @@ export const CurrentUserProvider = ({ children }) => {
   // When the data is received, update currentUser.
   // Also, set `status` to `idle`
 
-  fetch("/me/profile")
-    .then((res) => res.json())
-    .then((data) => {
-      // console.log(data);
-      setCurrentUser(data);
-      setStatus("idle");
-    });
+  useEffect(() => {
+    fetch("/me/profile")
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        setCurrentUser(data);
+        setStatus("idle");
+      });
+  }, []);
 
   return (
     <CurrentUserContext.Provider value={{ currentUser, status }}>

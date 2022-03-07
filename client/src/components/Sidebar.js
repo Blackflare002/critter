@@ -1,11 +1,11 @@
-import catLogo from "../cat-logo.svg";
+// import catLogo from "..assets/"
 import { Link } from "react-router-dom";
 
 const Sidebar = () => {
   return (
     <>
       <nav>
-        <img src={catLogo} />
+        <img />
         <ul>
           <li>
             <Link to="/">Home</Link>
