@@ -1,7 +1,8 @@
 import React from "react";
+import { Wrapper } from "./HomeFeed";
 
 const Notifications = () => {
-  return <div>Notifications</div>;
+  return <Wrapper>Notifications</Wrapper>;
 };
 
 export default Notifications;

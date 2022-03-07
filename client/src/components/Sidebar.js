@@ -11,18 +11,18 @@ const Sidebar = () => {
       <NavBar>
         <Logo />
         <StyledUl>
-          <StyledLi>
-            <NaviLink to="/">Home</NaviLink>
-          </StyledLi>
-          <StyledLi>
-            <NaviLink to="/profile">Profile</NaviLink>
-          </StyledLi>
-          <StyledLi>
-            <NaviLink to="/notifications">Notifications</NaviLink>
-          </StyledLi>
-          <StyledLi>
-            <NaviLink to="/bookmarks">Bookmarks</NaviLink>
-          </StyledLi>
+          <NaviLink to="/">
+            <StyledLi>Home</StyledLi>
+          </NaviLink>
+          <NaviLink to="/profile">
+            <StyledLi>Profile</StyledLi>
+          </NaviLink>
+          <NaviLink to="/notifications">
+            <StyledLi>Notifications</StyledLi>
+          </NaviLink>
+          <NaviLink to="/bookmarks">
+            <StyledLi>Bookmarks</StyledLi>
+          </NaviLink>
         </StyledUl>
       </NavBar>
     </NavWrapper>
@@ -53,6 +53,7 @@ const NavBar = styled.div`
 `;
 
 const NavWrapper = styled.div`
+  position: absolute;
   display: flex;
   flex-direction: column;
   /* justify-content: space-around; */
