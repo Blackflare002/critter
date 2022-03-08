@@ -12,21 +12,26 @@ const Tweet = ({ tweet }) => {
   return (
     <Wrapper>
       <TweetWrapper>
-        <Link to={`/tweet/${tweet.id}`}>
+        <StyledLink to={`/tweet/${tweet.id}`}>
           <Avatar src={tweet.author.avatarSrc} />
           <span>{tweet.author.displayName}</span>
           <span>{tweet.author.handle}</span>
+          <p>{moment(tweet.timestamp).format("MMM Do")}</p>
           <p>{tweet.status}</p>
           {media && <StyledImg src={media.url} />}
-          <p>{moment(tweet.timestamp).format("MMM Do")}</p>
           <IoChatbubbleOutline />
           <FiHeart />
           <FaRetweet />
-        </Link>
+        </StyledLink>
       </TweetWrapper>
     </Wrapper>
   );
 };
+
+const StyledLink = styled(Link)`
+  text-decoration: none;
+  color: black;
+`;
 
 const Avatar = styled.img`
   height: 35px;
