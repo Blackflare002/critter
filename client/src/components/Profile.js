@@ -6,12 +6,20 @@ const Profile = () => {
   const { currentUser } = useContext(CurrentUserContext);
   console.log("Profile, currentUser: ", currentUser);
   if (currentUser === null) {
-    return <div>Loading...</div>;
+    return (
+      <Wrapper>
+        <div>Loading...</div>
+      </Wrapper>
+    );
   } else {
     return (
       <Wrapper>
         <div>Profile</div>
-        <div>{currentUser.handle}</div>
+        <div>Handle: {currentUser.profile.handle}</div>
+        <div>Display Name: {currentUser.profile.displayName}</div>
+        <div>Location: {currentUser.profile.location}</div>
+        <div>Bio: {currentUser.profile.bio}</div>
+        {/* <div>{currentUser.profile.handle}</div> */}
       </Wrapper>
     );
   }

@@ -14,7 +14,7 @@ export const CurrentUserProvider = ({ children }) => {
     fetch("/api/me/profile")
       .then((res) => res.json())
       .then((data) => {
-        console.log("Current User data: ", data);
+        // console.log("Current User data: ", data);
         setCurrentUser(data);
         setStatus("idle");
       });

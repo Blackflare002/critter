@@ -11,7 +11,7 @@ const Sidebar = () => {
       <NavBar>
         <Logo />
         <StyledUl>
-          <NaviLink to="/">
+          <NaviLink exact to="/">
             <StyledLi>Home</StyledLi>
           </NaviLink>
           <NaviLink to="/profile">
@@ -68,9 +68,9 @@ const NaviLink = styled(NavLink)`
   text-decoration: none;
   color: black;
   font-weight: bold;
-  /* &.active {
+  :active {
     color: ${COLORS.primary};
-  } */
+  }
 `;
 
 export default Sidebar;
