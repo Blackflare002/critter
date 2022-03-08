@@ -11,10 +11,10 @@ export const CurrentUserProvider = ({ children }) => {
   // Also, set `status` to `idle`
 
   useEffect(() => {
-    fetch("/me/profile")
+    fetch("/api/me/profile")
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        console.log("Current User data: ", data);
         setCurrentUser(data);
         setStatus("idle");
       });

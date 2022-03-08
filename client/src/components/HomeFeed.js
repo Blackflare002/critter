@@ -7,14 +7,18 @@ const HomeFeed = () => {
     fetch("/api/me/home-feed")
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        console.log("Home Feed data: ", data);
         // setCurrentUser(data);
         // setStatus("idle");
       });
   }, []);
+
   return (
     <>
-      <Wrapper>Home Feed</Wrapper>
+      <Wrapper>
+        <div>Home Feed</div>
+        <p></p>
+      </Wrapper>
     </>
   );
 };
