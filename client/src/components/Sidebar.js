@@ -4,8 +4,13 @@ import { ReactComponent as Logo } from "../cat-logo.svg";
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 import { COLORS } from "../Constants";
+import { useContext } from "react";
+import CurrentUserContext from "./CurrentUserContext";
 
 const Sidebar = () => {
+  const { currentUser } = useContext(CurrentUserContext);
+  let handle = currentUser.profile.handle;
+  console.log(currentUser);
   return (
     <NavWrapper>
       <NavBar>
@@ -14,7 +19,10 @@ const Sidebar = () => {
           <NaviLink exact to="/">
             <StyledLi>Home</StyledLi>
           </NaviLink>
-          <NaviLink to="/profile">
+          {/* api/:handle/profile */}
+          {/* /api/me/profile */}
+          {/* /profile */}
+          <NaviLink to={`/profile/${handle}`}>
             <StyledLi>Profile</StyledLi>
           </NaviLink>
           <NaviLink to="/notifications">

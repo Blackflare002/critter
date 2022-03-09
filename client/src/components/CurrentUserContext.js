@@ -1,4 +1,5 @@
 import { createContext, useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 
 const CurrentUserContext = createContext(null);
 
@@ -9,6 +10,9 @@ export const CurrentUserProvider = ({ children }) => {
   // Fetch the user data from the API (/me/profile)
   // When the data is received, update currentUser.
   // Also, set `status` to `idle`
+
+  // const { user } = useParams();
+  // console.log({ user });
 
   useEffect(() => {
     fetch("/api/me/profile")

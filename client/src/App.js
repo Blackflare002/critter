@@ -11,37 +11,47 @@ import Profile from "./components/Profile";
 import { IconName } from "react-icons/fi";
 import Sidebar from "./components/Sidebar";
 import GlobalStyles from "./components/GlobalStyles";
+import CurrentUserContext from "./components/CurrentUserContext";
+import { useContext } from "react";
+import { Wrapper } from "./components/HomeFeed";
 
 const App = () => {
-  return (
-    <>
-      <GlobalStyles />
-      <BrowserRouter>
-        {/* <h1>AAAAAAAAAAAAAAA</h1> */}
-        <div>
-          <Sidebar />
-          {/* <h1>Hello</h1> */}
-        </div>
-        <Switch>
-          <Route exact path="/">
-            <HomeFeed />
-          </Route>
-          <Route exact path="/notifications">
-            <Notifications />
-          </Route>
-          <Route exact path="/bookmarks">
-            <Bookmarks />
-          </Route>
-          <Route exact path="/tweet/:tweetId">
-            <TweetDetails />
-          </Route>
-          <Route exact path="/:profileId">
-            <Profile />
-          </Route>
-        </Switch>
-      </BrowserRouter>
-    </>
-  );
+  const { currentUser } = useContext(CurrentUserContext);
+  if (currentUser === null) {
+    return (
+      <Wrapper>
+        <div>Loading...</div>
+      </Wrapper>
+    );
+  } else {
+    return (
+      <>
+        <GlobalStyles />
+        <BrowserRouter>
+          <div>
+            <Sidebar />
+          </div>
+          <Switch>
+            <Route exact path="/">
+              <HomeFeed />
+            </Route>
+            <Route exact path="/notifications">
+              <Notifications />
+            </Route>
+            <Route exact path="/bookmarks">
+              <Bookmarks />
+            </Route>
+            <Route exact path="/tweet/:tweetId">
+              <TweetDetails />
+            </Route>
+            <Route exact path="/profile/:profileId">
+              <Profile />
+            </Route>
+          </Switch>
+        </BrowserRouter>
+      </>
+    );
+  }
 };
 
 export default App;

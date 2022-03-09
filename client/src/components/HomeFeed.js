@@ -12,7 +12,7 @@ const HomeFeed = () => {
     fetch("/api/me/home-feed")
       .then((res) => res.json())
       .then((data) => {
-        console.log("Home Feed data: ", data);
+        // console.log("Home Feed data: ", data);
         setHomeFeed(data);
       });
   }, []);

@@ -12,10 +12,10 @@ const Tweet = ({ tweet }) => {
   return (
     <Wrapper>
       <TweetWrapper>
+        <Avatar src={tweet.author.avatarSrc} />
+        <span>{tweet.author.displayName}</span>
+        <span>{tweet.author.handle}</span>
         <StyledLink to={`/tweet/${tweet.id}`}>
-          <Avatar src={tweet.author.avatarSrc} />
-          <span>{tweet.author.displayName}</span>
-          <span>{tweet.author.handle}</span>
           <p>{moment(tweet.timestamp).format("MMM Do")}</p>
           <p>{tweet.status}</p>
           {media && <StyledImg src={media.url} />}
