@@ -6,14 +6,14 @@ import App from "./App";
 import { COLORS } from "./Constants";
 import { CurrentUserProvider } from "./components/CurrentUserContext";
 import { GeneralUserProvider } from "./components/GeneralUserContext";
+import GlobalStyles from "./components/GlobalStyles";
 
 ReactDOM.render(
   <React.StrictMode>
     {/* <COLORS> */}
+    <GlobalStyles />
     <CurrentUserProvider>
-      {/* <GeneralUserProvider> */}
       <App />
-      {/* </GeneralUserProvider> */}
     </CurrentUserProvider>
     {/* </COLORS> */}
   </React.StrictMode>,

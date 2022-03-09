@@ -41,7 +41,6 @@ const StyledLi = styled.li`
   padding: 10px;
   margin: 10px;
   border: dashed 1px black;
-  /* background-color: ${COLORS.primary}; */
   :hover {
     background-color: ${COLORS.primary};
   }
@@ -49,27 +48,24 @@ const StyledLi = styled.li`
 
 const StyledUl = styled.ul`
   display: flex;
-  /* gap: 20px; */
   flex-direction: column;
 `;
 
 const NavBar = styled.div`
   display: flex;
-  /* gap: 20px; */
   flex-direction: column;
-  /* justify-content: space-evenly; */
 `;
 
 const NavWrapper = styled.div`
   position: absolute;
   display: flex;
   flex-direction: column;
-  /* justify-content: space-around; */
   align-items: center;
-  border: solid 2px black;
+  /* border: solid 2px black; */
+  border-right: solid 1px grey;
+  margin-right: 10px;
   width: 15vw;
   height: 100vh;
-  /* z-index: 0; */
 `;
 
 const NaviLink = styled(NavLink)`

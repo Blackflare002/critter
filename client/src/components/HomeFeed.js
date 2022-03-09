@@ -67,15 +67,10 @@ const HomeFeed = () => {
   return (
     <>
       <Wrapper>
-        <div>Hello</div>
-        <Avatar src={avatarSrc} />
+        <StyledHeader>Home</StyledHeader>
+        <StyledHeaderAvatar src={avatarSrc} />
         <form>
-          <StyledTextarea
-            placeholder="Meow?!"
-            maxLength="280"
-            onChange={writeTweet}
-          />
-          {/* <input type="text" placeholder="Meow?!" maxLength="300" /> */}
+          <StyledTextarea placeholder="Meow?!" onChange={writeTweet} />
           <div
             style={
               count <= 0
@@ -111,12 +106,30 @@ const HomeFeed = () => {
   // );
 };
 
+const StyledHeaderAvatar = styled(Avatar)`
+  position: relative;
+  top: 35px;
+`;
+
+const StyledHeader = styled.h1`
+  padding: 10px;
+  border-bottom: gray solid 1px;
+  font-size: large;
+  font-weight: bold;
+  margin-bottom: 10px;
+`;
+
 export const Wrapper = styled.div`
   margin-left: 16%;
 `;
 
 const StyledTextarea = styled.textarea`
   resize: none;
+  height: 150px;
+  width: 75vw;
+  position: relative;
+  left: 60px;
+  border: none;
 `;
 
 export default HomeFeed;

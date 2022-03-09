@@ -6,11 +6,11 @@ import { createGlobalStyle } from "styled-components";
 */
 
 export default createGlobalStyle`
-*, *:before, *:after {
+/* *, *:before, *:after { */
     /* box-sizing: border-box; */
     /* -webkit-font-smoothing: antialiased; */
-    font-family: Arial, Helvetica, sans-serif
-  }
+    /* font-family: Arial, sans-serif */
+  /* } */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -28,7 +28,8 @@ time, mark, audio, video {
 	padding: 0;
 	border: 0;
 	font-size: 100%;
-	font: inherit;
+	/* font: inherit; */
+    font-family: Arial, sans-serif;
 	vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
