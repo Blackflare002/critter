@@ -21,6 +21,9 @@ export const CurrentUserProvider = ({ children }) => {
         // console.log("Current User data: ", data);
         setCurrentUser(data);
         setStatus("idle");
+      })
+      .catch(() => {
+        setStatus("Error");
       });
   }, []);
 

@@ -12,7 +12,7 @@ ReactDOM.render(
     {/* <COLORS> */}
     <CurrentUserProvider>
       {/* <GeneralUserProvider> */}
-        <App />
+      <App />
       {/* </GeneralUserProvider> */}
     </CurrentUserProvider>
     {/* </COLORS> */}

@@ -12,7 +12,7 @@ import Tweet from "./Tweet";
 ///api/:handle/feed
 
 const Profile = () => {
-  // const { user } = useContext(GeneralUserContext);
+  const { setStatus } = useContext(CurrentUserContext);
 
   const [user, setUser] = useState(null);
   const [feed, setFeed] = useState(null);
@@ -27,13 +27,17 @@ const Profile = () => {
         // console.log(data);
         setFeed(data);
         // setStatus("idle");
+      })
+      .catch(() => {
+        setStatus("Error");
       });
     fetch(`/api/${profileId}/profile`)
       .then((res) => res.json())
       .then((data) => {
         // console.log(data);
-        setUser(data);
-        // setStatus("idle");
+        setUser(data).catch(() => {
+          setStatus("Error");
+        });
       });
   }, [profileId]);
 

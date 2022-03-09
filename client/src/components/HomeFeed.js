@@ -21,6 +21,9 @@ const HomeFeed = () => {
       .then((data) => {
         // console.log("Home Feed data: ", data);
         setHomeFeed(data);
+      })
+      .catch(() => {
+        setStatus("Error");
       });
   }, []);
 

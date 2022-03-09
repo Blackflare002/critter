@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Wrapper } from "./HomeFeed";
 import styled from "styled-components";
@@ -6,8 +6,10 @@ import moment from "moment";
 import { FaRetweet } from "react-icons/fa";
 import { IoChatbubbleOutline } from "react-icons/io5";
 import { FiHeart, FiDownload } from "react-icons/fi";
+import CurrentUserContext from "./CurrentUserContext";
 
 const TweetDetails = () => {
+  const { setStatus } = useContext(CurrentUserContext);
   const { tweetId } = useParams();
   const [tweetDetails, setTweetDetails] = useState(null);
   // console.log(tweetId);
@@ -16,7 +18,9 @@ const TweetDetails = () => {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
-        setTweetDetails(data);
+        setTweetDetails(data).catch(() => {
+          setStatus("Error");
+        });
       });
   }, []);
   if (tweetDetails === null) {
