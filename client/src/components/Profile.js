@@ -4,13 +4,14 @@ import CurrentUserContext from "./CurrentUserContext";
 import moment from "moment";
 import { useParams } from "react-router-dom";
 import { useEffect } from "react";
+import GeneralUserContext from "./GeneralUserContext";
 
 //change current user
 //useParams ?
 ///api/:handle/feed
 
 const Profile = () => {
-  // const { currentUser } = useContext(CurrentUserContext);
+  // const { user } = useContext(GeneralUserContext);
 
   const [user, setUser] = useState(null);
   const [feed, setFeed] = useState(null);
@@ -22,14 +23,14 @@ const Profile = () => {
     fetch(`/api/${profileId}/feed`)
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        // console.log(data);
         setFeed(data);
         // setStatus("idle");
       });
     fetch(`/api/${profileId}/profile`)
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        // console.log(data);
         setUser(data);
         // setStatus("idle");
       });

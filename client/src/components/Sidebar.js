@@ -10,7 +10,7 @@ import CurrentUserContext from "./CurrentUserContext";
 const Sidebar = () => {
   const { currentUser } = useContext(CurrentUserContext);
   let handle = currentUser.profile.handle;
-  console.log(currentUser);
+  // console.log(currentUser);
   return (
     <NavWrapper>
       <NavBar>

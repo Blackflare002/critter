@@ -5,15 +5,27 @@ import { FiHeart } from "react-icons/fi";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import moment from "moment";
+import CurrentUserContext from "./CurrentUserContext";
+import { useContext } from "react";
+import GeneralUserContext from "./GeneralUserContext";
 
 const Tweet = ({ tweet }) => {
   //   console.log(tweet);
   let media = tweet.media[0];
+
+  // const { currentUser } = useContext(CurrentUserContext);
+  let handle = tweet.author.handle;
+
   return (
     <Wrapper>
       <TweetWrapper>
         <Avatar src={tweet.author.avatarSrc} />
-        <span>{tweet.author.displayName}</span>
+
+        {/* to={`/profile/${handle}`} */}
+        <StyledLink to={`/profile/${handle}`}>
+          {tweet.author.displayName}
+        </StyledLink>
+
         <span>{tweet.author.handle}</span>
         <StyledLink to={`/tweet/${tweet.id}`}>
           <p>{moment(tweet.timestamp).format("MMM Do")}</p>
