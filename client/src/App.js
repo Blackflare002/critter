@@ -16,7 +16,10 @@ import { useContext } from "react";
 import { Wrapper } from "./components/HomeFeed";
 
 const App = () => {
-  const { currentUser } = useContext(CurrentUserContext);
+  const { currentUser, status } = useContext(CurrentUserContext);
+  if (status === "Error") {
+    return <div>Error</div>;
+  }
   if (currentUser === null) {
     return (
       <Wrapper>

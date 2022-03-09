@@ -62,7 +62,7 @@ const StyledLink = styled(Link)`
   color: black;
 `;
 
-const Avatar = styled.img`
+export const Avatar = styled.img`
   height: 35px;
   border-radius: 15px;
 `;
