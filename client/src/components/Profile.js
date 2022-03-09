@@ -5,6 +5,7 @@ import moment from "moment";
 import { useParams } from "react-router-dom";
 import { useEffect } from "react";
 import GeneralUserContext from "./GeneralUserContext";
+import Tweet from "./Tweet";
 
 //change current user
 //useParams ?
@@ -59,7 +60,12 @@ const Profile = () => {
         <div>Likes: {user.profile.numLikes}</div>
         <div>Follows you: {user.profile.isFollowingYou}</div>
         <div>Following: {user.profile.isBeingFollowedByYou}</div>
-        {/* <div>{currentUser.profile.handle}</div> */}
+        <div>Feed</div>
+        <div>
+          {feed.tweetIds.map((el) => {
+            return <Tweet tweet={feed.tweetsById[el]} />;
+          })}
+        </div>
       </Wrapper>
     );
   }

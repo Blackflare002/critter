@@ -24,8 +24,6 @@ const HomeFeed = () => {
     );
   } else {
     return homeFeed.tweetIds.map((el) => {
-      // console.log(homeFeed.tweetsById[el].author.handle);
-      // return <div>{homeFeed.tweetsById[el].author.handle}</div>;
       return <Tweet tweet={homeFeed.tweetsById[el]} />;
     });
   }

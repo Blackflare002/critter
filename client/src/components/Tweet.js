@@ -20,9 +20,9 @@ const Tweet = ({ tweet }) => {
   const [numLikes, setNumLikes] = useState(tweet.numLikes);
 
   const handleToggleLike = () => {
-    console.log("clicked");
+    // console.log("clicked");
     setIsLiked(!isLiked);
-    console.log(isLiked);
+    // console.log(isLiked);
     isLiked ? setNumLikes(numLikes - 1) : setNumLikes(numLikes + 1);
   };
 
