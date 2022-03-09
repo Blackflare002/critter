@@ -14,16 +14,28 @@ import GlobalStyles from "./components/GlobalStyles";
 import CurrentUserContext from "./components/CurrentUserContext";
 import { useContext } from "react";
 import { Wrapper } from "./components/HomeFeed";
+import { ImSpinner9 } from "react-icons/im";
+import styled, { keyframes } from "styled-components";
+import { FaSkull } from "react-icons/fa";
 
 const App = () => {
   const { currentUser, status } = useContext(CurrentUserContext);
   if (status === "Error") {
-    return <div>Error</div>;
+    return (
+      <>
+        <Wrapper>
+          <FaSkull />
+          <h2>Error</h2>
+          <p>Try refreshing the page!</p>
+        </Wrapper>
+      </>
+    );
   }
   if (currentUser === null) {
     return (
       <Wrapper>
         <div>Loading...</div>
+        <StyledLoadingIcon className="loading-spinner" />
       </Wrapper>
     );
   } else {
@@ -56,6 +68,19 @@ const App = () => {
     );
   }
 };
+
+export const spin = keyframes` 
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }`;
+
+export const StyledLoadingIcon = styled(ImSpinner9)`
+  /* color: red; */
+  animation: ${spin} 2s infinite;
+`;
 
 export default App;
 

@@ -5,6 +5,7 @@ import { useEffect } from "react";
 import Tweet from "./Tweet";
 import CurrentUserContext from "./CurrentUserContext";
 import { Avatar } from "./Tweet";
+import { spin, StyledLoadingIcon } from "../App";
 // import { TextInput } from "react";
 // import { TextInput } from 'react-native'
 
@@ -34,6 +35,7 @@ const HomeFeed = () => {
     return (
       <Wrapper>
         <div>Loading...</div>
+        <StyledLoadingIcon />
       </Wrapper>
     );
   }
@@ -89,7 +91,12 @@ const HomeFeed = () => {
         </form>
       </Wrapper>
       {homeFeed.tweetIds.map((el) => {
-        return <Tweet tweet={homeFeed.tweetsById[el]} />;
+        return (
+          <Tweet
+            key={Math.round(Math.random() * 8008135)}
+            tweet={homeFeed.tweetsById[el]}
+          />
+        );
       })}
     </>
   );
