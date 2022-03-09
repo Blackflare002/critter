@@ -8,13 +8,23 @@ import moment from "moment";
 import CurrentUserContext from "./CurrentUserContext";
 import { useContext } from "react";
 import GeneralUserContext from "./GeneralUserContext";
+import { IconContext } from "react-icons";
+import { useState } from "react";
 
 const Tweet = ({ tweet }) => {
   //   console.log(tweet);
   let media = tweet.media[0];
-
-  // const { currentUser } = useContext(CurrentUserContext);
   let handle = tweet.author.handle;
+  // let isLiked = tweet.isliked;
+  const [isLiked, setIsLiked] = useState(tweet.isLiked);
+  const [numLikes, setNumLikes] = useState(tweet.numLikes);
+
+  const handleToggleLike = () => {
+    console.log("clicked");
+    setIsLiked(!isLiked);
+    console.log(isLiked);
+    isLiked ? setNumLikes(numLikes - 1) : setNumLikes(numLikes + 1);
+  };
 
   return (
     <Wrapper>
@@ -31,10 +41,17 @@ const Tweet = ({ tweet }) => {
           <p>{moment(tweet.timestamp).format("MMM Do")}</p>
           <p>{tweet.status}</p>
           {media && <StyledImg src={media.url} />}
-          <IoChatbubbleOutline />
-          <FiHeart />
-          <FaRetweet />
         </StyledLink>
+        <IoChatbubbleOutline />
+        {isLiked ? (
+          <IconContext.Provider value={{ color: "red" }}>
+            <FiHeart onClick={handleToggleLike} />
+          </IconContext.Provider>
+        ) : (
+          <FiHeart onClick={handleToggleLike} />
+        )}
+        <span>{numLikes}</span>
+        <FaRetweet />
       </TweetWrapper>
     </Wrapper>
   );
