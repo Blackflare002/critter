@@ -68,12 +68,12 @@ const Tweet = ({ tweet }) => {
   );
 };
 
-const ActionsBar = styled.div`
+export const ActionsBar = styled.div`
   display: flex;
   justify-content: space-evenly;
 `;
 
-const ActionsBarWrapper = styled.div`
+export const ActionsBarWrapper = styled.div`
   display: block;
   padding: 10px 10px 0 10px;
 `;
@@ -95,7 +95,6 @@ const StyledDisplayName = styled(StyledLink)`
 `;
 
 const StyledHandle = styled.span`
-  /* font-weight: lighter; */
   color: grey;
   font-size: smaller;
 `;
@@ -108,13 +107,14 @@ export const Avatar = styled.img`
 const TweetWrapper = styled.div`
   margin-bottom: 10px;
   /* border: solid 1px black; */
-  border-bottom: solid 1px grey;
-  border-left: solid 1px grey;
+  border-bottom: solid 1px lightgrey;
+  border-left: solid 1px lightgrey;
   padding: 15px;
 `;
 
 const StyledImg = styled.img`
   max-height: 250px;
+  border-radius: 15px;
 `;
 
 export default Tweet;

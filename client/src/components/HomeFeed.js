@@ -140,7 +140,7 @@ const ButtonCount = styled.div`
 `;
 
 export const Border = styled.div`
-  border-right: 1px solid grey;
+  border-right: 1px solid lightgrey;
   /* width: 90vw; */
 `;
 
@@ -151,7 +151,7 @@ const StyledHeaderAvatar = styled(Avatar)`
 
 const StyledHeader = styled.h1`
   padding: 10px;
-  border-bottom: gray solid 1px;
+  border-bottom: lightgray solid 1px;
   font-size: large;
   font-weight: bold;
   margin-bottom: 10px;

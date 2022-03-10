@@ -7,6 +7,8 @@ import { FaRetweet } from "react-icons/fa";
 import { IoChatbubbleOutline } from "react-icons/io5";
 import { FiHeart, FiDownload } from "react-icons/fi";
 import CurrentUserContext from "./CurrentUserContext";
+import { BsArrowLeft } from "react-icons/bs";
+import { ActionsBarWrapper, ActionsBar } from "./Tweet";
 
 const TweetDetails = () => {
   const { setStatus } = useContext(CurrentUserContext);
@@ -33,26 +35,96 @@ const TweetDetails = () => {
     let media = tweetDetails.tweet.media[0];
     return (
       <Wrapper>
-        {/* <div>Tweet Details</div> */}
-        <DetailsAvatar src={tweetDetails.tweet.author.avatarSrc} />
-        <span>{tweetDetails.tweet.author.displayName}</span>
-        <span>{tweetDetails.tweet.status}</span>
-        {media && <StyledImg src={media.url} />}
-        <span>
-          {moment(tweetDetails.tweet.timestamp).format("MMMM Do YYYY, h:mm A")}
-        </span>
-        <span> Critter Web App </span>
-        <IoChatbubbleOutline />
-        <FiHeart />
-        <FaRetweet />
-        <FiDownload />
+        <BackBox>
+          <BsArrowLeft />
+          <div>Meow</div>
+        </BackBox>
+        <div>
+          <UserDeets>
+            <DetailsAvatar src={tweetDetails.tweet.author.avatarSrc} />
+            <UserDeetsText>
+              <DisplayName>{tweetDetails.tweet.author.displayName}</DisplayName>
+              <Handle>@{tweetDetails.tweet.author.handle}</Handle>
+            </UserDeetsText>
+          </UserDeets>
+        </div>
+        <Status>{tweetDetails.tweet.status}</Status>
+        <div>{media && <StyledImg src={media.url} />}</div>
+        <Time>
+          <p>
+            {moment(tweetDetails.tweet.timestamp).format(
+              "MMMM Do YYYY, h:mm A"
+            )}
+          </p>
+          <span> - Critter Web App </span>
+        </Time>
+        <ActionsWrapper>
+          <ActionsBar>
+            <IoChatbubbleOutline />
+            <FiHeart />
+            <FaRetweet />
+            <FiDownload />
+          </ActionsBar>
+        </ActionsWrapper>
       </Wrapper>
     );
   }
 };
 
+const ActionsWrapper = styled(ActionsBarWrapper)`
+  display: block;
+  padding: 15px 10px 15px 10px;
+  border: solid 1px lightgrey;
+`;
+
+const Time = styled.div`
+  display: flex;
+  gap: 5px;
+  color: grey;
+  font-size: small;
+  padding: 15px;
+`;
+
+const Status = styled.div`
+  font-size: larger;
+  margin: 10px 0 10px 0;
+`;
+
+const Handle = styled.p`
+  color: grey;
+  font-size: smaller;
+`;
+
+const DisplayName = styled.p`
+  font-weight: bold;
+  font-size: large;
+`;
+
+const UserDeetsText = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+`;
+
+const UserDeets = styled.div`
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+`;
+
+const BackBox = styled.div`
+  display: flex;
+  padding: 15px;
+  margin-bottom: 10px;
+  gap: 10px;
+  border-bottom: 1px solid grey;
+  font-weight: bold;
+  font-size: large;
+`;
+
 const StyledImg = styled.img`
   max-height: 350px;
+  border-radius: 15px;
 `;
 
 const DetailsAvatar = styled.img`

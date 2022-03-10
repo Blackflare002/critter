@@ -62,7 +62,7 @@ const NavWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   /* border: solid 2px black; */
-  border-right: solid 1px grey;
+  border-right: solid 1px lightgrey;
   margin-right: 10px;
   width: 15vw;
   height: 100vh;
