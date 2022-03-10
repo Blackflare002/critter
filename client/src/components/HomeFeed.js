@@ -5,7 +5,7 @@ import { useEffect } from "react";
 import Tweet from "./Tweet";
 import CurrentUserContext from "./CurrentUserContext";
 import { Avatar } from "./Tweet";
-import { spin, StyledLoadingIcon } from "../App";
+// import { spin, StyledLoadingIcon } from "../App";
 import { COLORS } from "../Constants";
 import { ImSpinner10 } from "react-icons/im";
 

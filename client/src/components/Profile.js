@@ -4,7 +4,7 @@ import CurrentUserContext from "./CurrentUserContext";
 import moment from "moment";
 import { useParams } from "react-router-dom";
 import { useEffect } from "react";
-import GeneralUserContext from "./GeneralUserContext";
+// import GeneralUserContext from "./GeneralUserContext";
 import Tweet from "./Tweet";
 import styled from "styled-components";
 import { DisplayName, Handle } from "./TweetDetails";

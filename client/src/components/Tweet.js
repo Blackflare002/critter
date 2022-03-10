@@ -5,12 +5,13 @@ import { FiHeart, FiDownload } from "react-icons/fi";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import moment from "moment";
-import CurrentUserContext from "./CurrentUserContext";
-import { useContext } from "react";
-import GeneralUserContext from "./GeneralUserContext";
+// import CurrentUserContext from "./CurrentUserContext";
+// import { useContext } from "react";
+// import GeneralUserContext from "./GeneralUserContext";
 import { IconContext } from "react-icons";
 import { useState } from "react";
 import { Border } from "./HomeFeed";
+import { useHistory } from "react-router-dom";
 
 const Tweet = ({ tweet }) => {
   //   console.log(tweet);
@@ -27,24 +28,28 @@ const Tweet = ({ tweet }) => {
     isLiked ? setNumLikes(numLikes - 1) : setNumLikes(numLikes + 1);
   };
 
+  let history = useHistory();
+  const historyClick = () => {
+    history.push(`/tweet/${tweet.id}`);
+  };
+
   return (
     <Wrapper>
       <Border>
-        <TweetWrapper>
+        <TweetWrapper onClick={historyClick}>
           <Avatar src={tweet.author.avatarSrc} />
-          {/* to={`/profile/${handle}`} */}
           <StyledDisplayName to={`/profile/${handle}`}>
             {tweet.author.displayName}
           </StyledDisplayName>
+          {/* <StyledLink to={`/tweet/${tweet.id}`}> */}
           <StyledHandle>@{tweet.author.handle}</StyledHandle>
-          <StyledLink to={`/tweet/${tweet.id}`}>
-            <StyledHandle>
-              {" "}
-              - {moment(tweet.timestamp).format("MMM Do")}
-            </StyledHandle>
-            <StyledStatus>{tweet.status}</StyledStatus>
-            {media && <StyledImg src={media.url} />}
-          </StyledLink>
+          <StyledHandle>
+            {" "}
+            - {moment(tweet.timestamp).format("MMM Do")}
+          </StyledHandle>
+          <StyledStatus>{tweet.status}</StyledStatus>
+          {media && <StyledImg src={media.url} />}
+          {/* </StyledLink> */}
           <ActionsBarWrapper>
             <ActionsBar>
               <IoChatbubbleOutline />

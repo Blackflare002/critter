@@ -9,6 +9,7 @@ import { FiHeart, FiDownload } from "react-icons/fi";
 import CurrentUserContext from "./CurrentUserContext";
 import { BsArrowLeft } from "react-icons/bs";
 import { ActionsBarWrapper, ActionsBar } from "./Tweet";
+import { ComponentSpinner } from "./HomeFeed";
 
 const TweetDetails = () => {
   const { setStatus } = useContext(CurrentUserContext);
@@ -19,16 +20,18 @@ const TweetDetails = () => {
     fetch(`/api/tweet/${tweetId}`)
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
-        setTweetDetails(data).catch(() => {
-          setStatus("Error");
-        });
+        // console.log(data);
+        setTweetDetails(data);
+      })
+      .catch(() => {
+        setStatus("Error");
       });
   }, []);
   if (tweetDetails === null) {
     return (
       <Wrapper>
         <div>Loading...</div>
+        <ComponentSpinner />
       </Wrapper>
     );
   } else {
