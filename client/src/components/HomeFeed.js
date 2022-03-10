@@ -6,10 +6,7 @@ import Tweet from "./Tweet";
 import CurrentUserContext from "./CurrentUserContext";
 import { Avatar } from "./Tweet";
 import { spin, StyledLoadingIcon } from "../App";
-// import { TextInput } from "react";
-// import { TextInput } from 'react-native'
-
-// const HomeFeedContext = createContext(null);
+import { COLORS } from "../Constants";
 
 const HomeFeed = () => {
   const [homeFeed, setHomeFeed] = useState(null);
@@ -67,30 +64,38 @@ const HomeFeed = () => {
   return (
     <>
       <Wrapper>
-        <StyledHeader>Home</StyledHeader>
-        <StyledHeaderAvatar src={avatarSrc} />
-        <form>
-          <StyledTextarea placeholder="Meow?!" onChange={writeTweet} />
-          <div
-            style={
-              count <= 0
-                ? { color: "red" }
-                : count <= 55
-                ? { color: "yellow" }
-                : null
-            }
-          >
-            {count}
-          </div>
-          <button onClick={sendTweet}>Meow!</button>
-        </form>
+        <HeaderDivider>
+          <Border>
+            <StyledHeader>Home</StyledHeader>
+            <StyledHeaderAvatar src={avatarSrc} />
+            <form>
+              <StyledTextarea placeholder="Meow?!" onChange={writeTweet} />
+              <ButtonCount>
+                <Counter
+                  style={
+                    count <= 0
+                      ? { color: "red" }
+                      : count <= 55
+                      ? { color: "yellow" }
+                      : null
+                  }
+                >
+                  {count}
+                </Counter>
+                <MeowButton onClick={sendTweet}>Meow!</MeowButton>
+              </ButtonCount>
+            </form>
+          </Border>
+        </HeaderDivider>
       </Wrapper>
       {homeFeed.tweetIds.map((el) => {
         return (
+          // <Border>
           <Tweet
             key={Math.round(Math.random() * 8008135)}
             tweet={homeFeed.tweetsById[el]}
           />
+          // </Border>
         );
       })}
     </>
@@ -105,6 +110,39 @@ const HomeFeed = () => {
   //   </>
   // );
 };
+
+const Counter = styled.div`
+position: relative;
+top: 10px;
+color: lightgrey;
+`
+
+const HeaderDivider = styled.div`
+  border-bottom: 15px solid lightgrey;
+`;
+
+const MeowButton = styled.button`
+  background-color: ${COLORS.primary};
+  color: white;
+  font-size: large;
+  font-weight: bold;
+  border: none;
+  padding: 10px;
+  border-radius: 15px;
+  margin-left: 5px;
+`;
+
+const ButtonCount = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  padding: 5px;
+  margin-right: 10px;
+`;
+
+export const Border = styled.div`
+  border-right: 1px solid grey;
+  /* width: 90vw; */
+`;
 
 const StyledHeaderAvatar = styled(Avatar)`
   position: relative;
@@ -121,12 +159,13 @@ const StyledHeader = styled.h1`
 
 export const Wrapper = styled.div`
   margin-left: 16%;
+  max-width: 70vw;
 `;
 
 const StyledTextarea = styled.textarea`
   resize: none;
   height: 150px;
-  width: 75vw;
+  width: 60vw;
   position: relative;
   left: 60px;
   border: none;

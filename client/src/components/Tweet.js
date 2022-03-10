@@ -10,6 +10,7 @@ import { useContext } from "react";
 import GeneralUserContext from "./GeneralUserContext";
 import { IconContext } from "react-icons";
 import { useState } from "react";
+import { Border } from "./HomeFeed";
 
 const Tweet = ({ tweet }) => {
   //   console.log(tweet);
@@ -28,39 +29,41 @@ const Tweet = ({ tweet }) => {
 
   return (
     <Wrapper>
-      <TweetWrapper>
-        <Avatar src={tweet.author.avatarSrc} />
-        {/* to={`/profile/${handle}`} */}
-        <StyledDisplayName to={`/profile/${handle}`}>
-          {tweet.author.displayName}
-        </StyledDisplayName>
-        <StyledHandle>@{tweet.author.handle}</StyledHandle>
-        <StyledLink to={`/tweet/${tweet.id}`}>
-          <StyledHandle>
-            {" "}
-            - {moment(tweet.timestamp).format("MMM Do")}
-          </StyledHandle>
-          <StyledStatus>{tweet.status}</StyledStatus>
-          {media && <StyledImg src={media.url} />}
-        </StyledLink>
-        <ActionsBarWrapper>
-          <ActionsBar>
-            <IoChatbubbleOutline />
-            <div>
-              {isLiked ? (
-                <IconContext.Provider value={{ color: "red" }}>
+      <Border>
+        <TweetWrapper>
+          <Avatar src={tweet.author.avatarSrc} />
+          {/* to={`/profile/${handle}`} */}
+          <StyledDisplayName to={`/profile/${handle}`}>
+            {tweet.author.displayName}
+          </StyledDisplayName>
+          <StyledHandle>@{tweet.author.handle}</StyledHandle>
+          <StyledLink to={`/tweet/${tweet.id}`}>
+            <StyledHandle>
+              {" "}
+              - {moment(tweet.timestamp).format("MMM Do")}
+            </StyledHandle>
+            <StyledStatus>{tweet.status}</StyledStatus>
+            {media && <StyledImg src={media.url} />}
+          </StyledLink>
+          <ActionsBarWrapper>
+            <ActionsBar>
+              <IoChatbubbleOutline />
+              <div>
+                {isLiked ? (
+                  <IconContext.Provider value={{ color: "red" }}>
+                    <FiHeart onClick={handleToggleLike} />
+                  </IconContext.Provider>
+                ) : (
                   <FiHeart onClick={handleToggleLike} />
-                </IconContext.Provider>
-              ) : (
-                <FiHeart onClick={handleToggleLike} />
-              )}
-              <span>{numLikes}</span>
-            </div>
-            <FaRetweet />
-            <FiDownload />
-          </ActionsBar>
-        </ActionsBarWrapper>
-      </TweetWrapper>
+                )}
+                <span>{numLikes}</span>
+              </div>
+              <FaRetweet />
+              <FiDownload />
+            </ActionsBar>
+          </ActionsBarWrapper>
+        </TweetWrapper>
+      </Border>
     </Wrapper>
   );
 };
@@ -104,7 +107,9 @@ export const Avatar = styled.img`
 
 const TweetWrapper = styled.div`
   margin-bottom: 10px;
-  border: solid 1px black;
+  /* border: solid 1px black; */
+  border-bottom: solid 1px grey;
+  border-left: solid 1px grey;
   padding: 15px;
 `;
 
