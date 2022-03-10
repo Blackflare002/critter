@@ -24,9 +24,11 @@ const App = () => {
     return (
       <>
         <Wrapper>
-          <FaSkull />
-          <h2>Error</h2>
-          <p>Try refreshing the page!</p>
+          <ErrorBox>
+            <FaSkull />
+            <h2>Error</h2>
+            <p>Try refreshing the page!</p>
+          </ErrorBox>
         </Wrapper>
       </>
     );
@@ -34,8 +36,10 @@ const App = () => {
   if (status === "loading") {
     return (
       <Wrapper>
-        <div>Loading...</div>
-        <StyledLoadingIcon className="loading-spinner" />
+        <ErrorBox>
+          <div>Loading...</div>
+          <StyledLoadingIcon className="loading-spinner" />
+        </ErrorBox>
       </Wrapper>
     );
   } else {
@@ -68,6 +72,16 @@ const App = () => {
     );
   }
 };
+
+// const
+
+const ErrorBox = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+`;
 
 export const spin = keyframes` 
   from {

@@ -1,12 +1,13 @@
 // createContext,
 import React, { useState, useContext } from "react";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import { useEffect } from "react";
 import Tweet from "./Tweet";
 import CurrentUserContext from "./CurrentUserContext";
 import { Avatar } from "./Tweet";
 import { spin, StyledLoadingIcon } from "../App";
 import { COLORS } from "../Constants";
+import { ImSpinner10 } from "react-icons/im";
 
 const HomeFeed = () => {
   const [homeFeed, setHomeFeed] = useState(null);
@@ -32,7 +33,7 @@ const HomeFeed = () => {
     return (
       <Wrapper>
         <div>Loading...</div>
-        <StyledLoadingIcon />
+        <ComponentSpinner />
       </Wrapper>
     );
   }
@@ -110,6 +111,18 @@ const HomeFeed = () => {
   //   </>
   // );
 };
+
+const spin2 = keyframes` 
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }`;
+
+export const ComponentSpinner = styled(ImSpinner10)`
+  animation: ${spin2} 2s infinite;
+`;
 
 const Counter = styled.div`
   position: relative;

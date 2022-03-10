@@ -11,6 +11,7 @@ import { DisplayName, Handle } from "./TweetDetails";
 import { MdOutlineLocationOn } from "react-icons/md";
 import { FiCalendar } from "react-icons/fi";
 import { COLORS } from "../Constants";
+import { ComponentSpinner } from "./HomeFeed";
 
 const Profile = () => {
   const { setStatus } = useContext(CurrentUserContext);
@@ -48,6 +49,7 @@ const Profile = () => {
     return (
       <Wrapper>
         <div>Loading...</div>
+        <ComponentSpinner />
       </Wrapper>
     );
   }
@@ -56,6 +58,7 @@ const Profile = () => {
     return (
       <Wrapper>
         <div>Loading...</div>
+        <ComponentSpinner />
       </Wrapper>
     );
   } else {
