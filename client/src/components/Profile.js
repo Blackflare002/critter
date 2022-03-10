@@ -43,20 +43,22 @@ const Profile = () => {
   }, [profileId]);
 
   // console.log("Profile, currentUser: ", currentUser);
-  // if (user === null) {
-  //   return (
-  //     <Wrapper>
-  //       <div>Loading...</div>
-  //     </Wrapper>
-  //   );
-  // }
-  // if (feed === null) {
-  //   return (
-  //     <Wrapper>
-  //       <div>Loading...</div>
-  //     </Wrapper>
-  //   );
-  // } else {
+  if (user === null) {
+    // setStatus("Loading");
+    return (
+      <Wrapper>
+        <div>Loading...</div>
+      </Wrapper>
+    );
+  }
+  if (feed === null) {
+    // setStatus("Loading");
+    return (
+      <Wrapper>
+        <div>Loading...</div>
+      </Wrapper>
+    );
+  } else {
     return (
       <>
         <Wrapper>
@@ -121,7 +123,7 @@ const Profile = () => {
       </>
     );
   }
-// };
+};
 
 const ActiveSort = styled.p`
   color: ${COLORS.primary};

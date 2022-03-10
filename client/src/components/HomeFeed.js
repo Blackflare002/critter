@@ -82,7 +82,7 @@ const HomeFeed = () => {
                 >
                   {count}
                 </Counter>
-                <MeowButton onClick={sendTweet}>Meow!</MeowButton>
+                <MeowButton onClick={sendTweet}>Meow</MeowButton>
               </ButtonCount>
             </form>
           </Border>
@@ -127,8 +127,8 @@ const MeowButton = styled.button`
   font-size: large;
   font-weight: bold;
   border: none;
-  padding: 10px;
-  border-radius: 15px;
+  padding: 10px 15px;
+  border-radius: 25px;
   margin-left: 5px;
 `;
 

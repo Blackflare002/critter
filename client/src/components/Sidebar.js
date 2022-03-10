@@ -19,9 +19,6 @@ const Sidebar = () => {
           <NaviLink exact to="/">
             <StyledLi>Home</StyledLi>
           </NaviLink>
-          {/* api/:handle/profile */}
-          {/* /api/me/profile */}
-          {/* /profile */}
           <NaviLink to={`/profile/${handle}`}>
             <StyledLi>Profile</StyledLi>
           </NaviLink>
@@ -32,10 +29,22 @@ const Sidebar = () => {
             <StyledLi>Bookmarks</StyledLi>
           </NaviLink>
         </StyledUl>
+        <SidebarButton>Meow</SidebarButton>
       </NavBar>
     </NavWrapper>
   );
 };
+
+const SidebarButton = styled.button`
+  background-color: ${COLORS.primary};
+  color: white;
+  padding: 10px 20px;
+  border-radius: 25px;
+  font-weight: bold;
+  font-size: large;
+  border: none;
+  margin: 10px 5px;
+`;
 
 const StyledLi = styled.li`
   padding: 10px;

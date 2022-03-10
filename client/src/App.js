@@ -31,7 +31,7 @@ const App = () => {
       </>
     );
   }
-  if (currentUser === null) {
+  if (status === "loading") {
     return (
       <Wrapper>
         <div>Loading...</div>
