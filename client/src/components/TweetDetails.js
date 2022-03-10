@@ -90,12 +90,12 @@ const Status = styled.div`
   margin: 10px 0 10px 0;
 `;
 
-const Handle = styled.p`
+export const Handle = styled.p`
   color: grey;
   font-size: smaller;
 `;
 
-const DisplayName = styled.p`
+export const DisplayName = styled.p`
   font-weight: bold;
   font-size: large;
 `;

@@ -112,10 +112,10 @@ const HomeFeed = () => {
 };
 
 const Counter = styled.div`
-position: relative;
-top: 10px;
-color: lightgrey;
-`
+  position: relative;
+  top: 10px;
+  color: lightgrey;
+`;
 
 const HeaderDivider = styled.div`
   border-bottom: 15px solid lightgrey;
