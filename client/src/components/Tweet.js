@@ -36,37 +36,39 @@ const Tweet = ({ tweet }) => {
   return (
     <Wrapper>
       <Border>
-        <TweetWrapper onClick={historyClick}>
+        <TweetWrapper>
           <Avatar src={tweet.author.avatarSrc} />
           <StyledDisplayName to={`/profile/${handle}`}>
             {tweet.author.displayName}
           </StyledDisplayName>
-          {/* <StyledLink to={`/tweet/${tweet.id}`}> */}
-          <StyledHandle>@{tweet.author.handle}</StyledHandle>
-          <StyledHandle>
-            {" "}
-            - {moment(tweet.timestamp).format("MMM Do")}
-          </StyledHandle>
-          <StyledStatus>{tweet.status}</StyledStatus>
-          {media && <StyledImg src={media.url} />}
-          {/* </StyledLink> */}
-          <ActionsBarWrapper>
-            <ActionsBar>
-              <IoChatbubbleOutline />
-              <div>
-                {isLiked ? (
-                  <IconContext.Provider value={{ color: "red" }}>
+          <div onClick={historyClick}>
+            {/* <StyledLink to={`/tweet/${tweet.id}`}> */}
+            <StyledHandle>@{tweet.author.handle}</StyledHandle>
+            <StyledHandle>
+              {" "}
+              - {moment(tweet.timestamp).format("MMM Do")}
+            </StyledHandle>
+            <StyledStatus>{tweet.status}</StyledStatus>
+            {media && <StyledImg src={media.url} />}
+            {/* </StyledLink> */}
+            <ActionsBarWrapper>
+              <ActionsBar>
+                <IoChatbubbleOutline />
+                <div>
+                  {isLiked ? (
+                    <IconContext.Provider value={{ color: "red" }}>
+                      <FiHeart onClick={handleToggleLike} />
+                    </IconContext.Provider>
+                  ) : (
                     <FiHeart onClick={handleToggleLike} />
-                  </IconContext.Provider>
-                ) : (
-                  <FiHeart onClick={handleToggleLike} />
-                )}
-                <span>{numLikes}</span>
-              </div>
-              <FaRetweet />
-              <FiDownload />
-            </ActionsBar>
-          </ActionsBarWrapper>
+                  )}
+                  <span>{numLikes}</span>
+                </div>
+                <FaRetweet />
+                <FiDownload />
+              </ActionsBar>
+            </ActionsBarWrapper>
+          </div>
         </TweetWrapper>
       </Border>
     </Wrapper>
