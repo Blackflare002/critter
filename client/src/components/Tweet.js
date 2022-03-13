@@ -51,24 +51,24 @@ const Tweet = ({ tweet }) => {
             <StyledStatus>{tweet.status}</StyledStatus>
             {media && <StyledImg src={media.url} />}
             {/* </StyledLink> */}
-            <ActionsBarWrapper>
-              <ActionsBar>
-                <IoChatbubbleOutline />
-                <div>
-                  {isLiked ? (
-                    <IconContext.Provider value={{ color: "red" }}>
-                      <FiHeart onClick={handleToggleLike} />
-                    </IconContext.Provider>
-                  ) : (
-                    <FiHeart onClick={handleToggleLike} />
-                  )}
-                  <span>{numLikes}</span>
-                </div>
-                <FaRetweet />
-                <FiDownload />
-              </ActionsBar>
-            </ActionsBarWrapper>
           </div>
+          <ActionsBarWrapper>
+            <ActionsBar>
+              <IoChatbubbleOutline />
+              <div>
+                {isLiked ? (
+                  <IconContext.Provider value={{ color: "red" }}>
+                    <FiHeart onClick={handleToggleLike} />
+                  </IconContext.Provider>
+                ) : (
+                  <FiHeart onClick={handleToggleLike} />
+                )}
+                <span>{numLikes}</span>
+              </div>
+              <FaRetweet />
+              <FiDownload />
+            </ActionsBar>
+          </ActionsBarWrapper>
         </TweetWrapper>
       </Border>
     </Wrapper>
